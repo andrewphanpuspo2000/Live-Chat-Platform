@@ -1,6 +1,8 @@
 "use client";
+import { useAuth } from "@/context/auth-context";
 import { createClient } from "@/lib/supabase/client";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 function AuthPage() {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
@@ -9,7 +11,14 @@ function AuthPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const supabase = createClient();
+  const { user, loading: authLoading } = useAuth();
+  const router = useRouter();
 
+  useEffect(() => {
+    if (user && !authLoading) {
+      router.push("/");
+    }
+  }, [user, authLoading, router]);
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Auth step 1");
