@@ -39,7 +39,7 @@ function Navbar() {
                 Messages
               </Link>
               <Link
-                href="/profile"
+                href="/Profile"
                 className="text-gray-300 hover:text-purple-400 font-medium transition-colors"
               >
                 Profile
