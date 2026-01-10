@@ -21,13 +21,13 @@ function Navbar() {
           {user && (
             <div className="hidden md:flex items-center space-x-8">
               <Link
-                href="/matches"
+                href="/Matches"
                 className="text-gray-300 hover:text-pink-400 font-medium transition-colors"
               >
                 Discover
               </Link>
               <Link
-                href="/matches/list"
+                href="/Matches/List"
                 className="text-gray-300 hover:text-blue-400 font-medium transition-colors"
               >
                 Matches
